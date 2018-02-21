@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `
-  <div class="container">
-   <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
-   <h3>{{currentFocus}}</h3>
-   <ul>
-      <li [class]="priorityColor(currentTask)" (click)="isDone(currentTask)" *ngFor="let currentTask of tasks">{{currentTask.description}}  <button (click)="editTask()">Edit!</button></li>
-   </ul>
- </div>
-`
+   selector: 'app-root',
+   template: `
+   <div class="container">
+      <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
+      <h3>{{currentFocus}}</h3>
+      <ul>
+         <li [class]="priorityColor(currentTask)" (click)="isDone(currentTask)" *ngFor="let currentTask
+         of tasks">{{currentTask.description}} <button (click)="editTask(currentTask)">Edit!</button></li>
+      </ul>
+      <hr>
+   </div>
+   `
 })
 
 export class AppComponent {
@@ -24,6 +26,7 @@ export class AppComponent {
     new Task('Begin brainstorming possible JavaScript group projects', 2),
     new Task('Add README file to last few Angular repos on GitHub', 3)
    ];
+   selectedTask = null;
 
    priorityColor(currentTask){
       if (currentTask.priority === 3){
@@ -34,8 +37,8 @@ export class AppComponent {
          return "bg-info";
       }
    }
-   editTask() {
-    alert("You just requested to edit a Task!");
+   editTask(clickedTask) {
+     this.selectedTask = clickedTask;
    }
 
    isDone(clickedTask: Task) {
