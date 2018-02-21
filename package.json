@@ -55,7 +55,7 @@
     "karma-jquery": "^0.2.2",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0",
-    "gulp-sass": "2.2.0",
+    "gulp-sass": "3.0.0",
     "gulp-shell": "0.5.2",
     "gulp-sourcemaps": "1.6.0",
     "gulp-util": "3.0.7",
